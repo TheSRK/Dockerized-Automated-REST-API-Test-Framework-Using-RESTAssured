@@ -10,7 +10,20 @@ public class Login {
 
     public void postDoLogin(){
         RestAssured.baseURI = prop.getProperty("baseUrl");
-
+        given().
+                contentType("application/json").
+                body("{\n" +
+                        "    \"username\":\"salman\",\n" +
+                        "    \"password\":\"salman1234\"\n" +
+                        "}").
+        when().
+                post("/customer/api/v1/login").
+        then().
+                log()
+                .all()
+                .statusCode(200)
+                .extract()
+                .response();
 
     }
 
