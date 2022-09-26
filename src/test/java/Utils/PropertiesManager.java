@@ -34,7 +34,7 @@ public class PropertiesManager {
     }
 
     //adding method to set property value
-    public void setProperty(String key, String value){
+    public static void setProperty(String key, String value){
         try {
             File file = new File(configFilePath);
             if (file.exists()){
