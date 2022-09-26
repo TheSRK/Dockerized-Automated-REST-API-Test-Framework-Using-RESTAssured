@@ -8,15 +8,14 @@ import java.util.Properties;
 
 public class PropertiesManager {
 
-    Properties properties = new Properties();
-    String configFilePath;
-    String propValue;
+    static Properties properties = new Properties();
+    //adding config.properties file path
+    static String configFilePath ="./src/test/resources/config.properties";
+    static String propValue;
 
-    public PropertiesManager(String configFilePath){
-        this.configFilePath = configFilePath;
-    }
 
-    public String getProperty(String key) {
+    //adding method to get property value
+    public static String getProperty(String key) {
         try {
             File file = new File(configFilePath);
             if (file.exists()) {
@@ -34,6 +33,7 @@ public class PropertiesManager {
         return propValue;
     }
 
+    //adding method to set property value
     public void setProperty(String key, String value){
         try {
             File file = new File(configFilePath);

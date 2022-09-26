@@ -1,23 +1,23 @@
 package Resquests;
 
+import Commons.Specification;
 import Utils.PropertiesManager;
 import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.*;
 
 public class Login {
-    public PropertiesManager prop = new PropertiesManager("./src/test/resources/config.properties");
 
     public void postDoLogin(){
-        RestAssured.baseURI = prop.getProperty("baseUrl");
         given().
-                contentType("application/json").
+                //adding common base request specification
+                spec(Specification.getBaseRequestSpecification()).
                 body("{\n" +
                         "    \"username\":\"salman\",\n" +
                         "    \"password\":\"salman1234\"\n" +
                         "}").
         when().
-                post("/customer/api/v1/login").
+                post(PropertiesManager.getProperty("loginEndPoint")).
         then().
                 log()
                 .all()
