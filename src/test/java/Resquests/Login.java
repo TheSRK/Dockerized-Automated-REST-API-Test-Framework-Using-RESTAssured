@@ -3,14 +3,11 @@ package Resquests;
 import Commons.Specification;
 import Data.DataLogin;
 import Utils.PropertiesManager;
-import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Properties;
 
 import static io.restassured.RestAssured.*;
 
@@ -29,7 +26,7 @@ public class Login {
         Response res =
                 given().
                         //adding common base request specification
-                        spec(Specification.getBaseRequestSpecification()).
+                        spec(Specification.setBaseRequestSpecification()).
                         body(getPayload()).
                 when().
                         post(PropertiesManager.getProperty("loginEndPoint")).

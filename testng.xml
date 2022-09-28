@@ -4,6 +4,7 @@
         <test name="API Tests">
                 <classes>
                         <class name="Runners.LoginTests"/>
+                        <class name="Runners.CustomerListTests"/>
                 </classes>
         </test>
 </suite>

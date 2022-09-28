@@ -10,10 +10,17 @@ import static io.restassured.RestAssured.*;
 public class Specification {
 
     //base request spec method without authorization
-    public static RequestSpecification getBaseRequestSpecification(){
+    public static RequestSpecification setBaseRequestSpecification(){
         return
                 given().
                         contentType("application/json").
+                        baseUri(PropertiesManager.getProperty("baseUrl"));
+    }
+    public static RequestSpecification setCommonRequestSpecification(){
+        return
+                given().
+                        contentType("application/json").
+                        header("Authorization", PropertiesManager.getProperty("token")).
                         baseUri(PropertiesManager.getProperty("baseUrl"));
     }
 }
