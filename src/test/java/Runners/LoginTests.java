@@ -8,6 +8,7 @@ public class LoginTests {
 
     @Test(priority = 0)
     public void testPostDoLogin(){
+        //calling login api method
         login.postDoLogin();
     }
 }
